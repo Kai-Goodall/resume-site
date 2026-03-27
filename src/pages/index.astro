@@ -155,7 +155,7 @@ const additionals = [
                   <p class="font-mono whitespace-nowrap hover:underline hover:cursor-pointer">
                     <span class="font-bold">{job.company}</span>&nbsp;<span class="text-black/40">({job.time})</span>
                   </p>
-                  <p class="font-mono md:text-right md:max-w-xs">{job.description}</p>
+                  <p class="font-mono md:text-right md:whitespace-nowrap">{job.description}</p>
                 </a>
               </div>
             ))
@@ -186,7 +186,7 @@ const additionals = [
             projects.map((project) => (
               <a class="grid md:flex md:justify-between" href={project.link}>
                 <p class="font-mono font-bold whitespace-nowrap hover:underline hover:cursor-pointer">{project.name}</p>
-                <p class="font-mono md:text-right md:max-w-xs">{project.description}</p>
+                <p class="font-mono md:text-right md:whitespace-nowrap">{project.description}</p>
               </a>
             ))
           }
@@ -200,7 +200,7 @@ const additionals = [
             skills.map((s) => (
               <div class="grid md:flex md:justify-between">
                 <p class="font-mono font-bold whitespace-nowrap">{s.category}</p>
-                <p class="font-mono md:text-right md:max-w-xs">{s.items}</p>
+                <p class="font-mono md:text-right md:whitespace-nowrap">{s.items}</p>
               </div>
             ))
           }
