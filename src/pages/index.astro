@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import { ViewTransitions } from "astro:transitions";
 import "../styles/app.css";
 
@@ -10,6 +9,7 @@ const work = [
     description: "end-to-end fabrication, static fire operations, materials R&D, brazing development",
     time: "Sep 2024 – present",
     link: "https://www.waterloorocketry.com/",
+    icon: "https://www.google.com/s2/favicons?domain=waterloorocketry.com&sz=64",
   },
   {
     company: "ODF / Merge",
@@ -17,6 +17,7 @@ const work = [
     description: "technical due diligence on 2,000+ applications; distributed $35k+ to 44 projects → $6M+ follow-on",
     time: "Apr 2024 – present",
     link: "https://joinodf.com/",
+    icon: "https://www.google.com/s2/favicons?domain=joinodf.com&sz=64",
   },
   {
     company: "Solideon",
@@ -24,6 +25,7 @@ const work = [
     description: "robotic WAAM calibration, FDM prototyping, fixture engineering for large aluminum parts",
     time: "Jun – Sep 2024",
     link: "https://solideon.com/",
+    icon: "https://www.google.com/s2/favicons?domain=solideon.com&sz=64",
   },
   {
     company: "Telesat",
@@ -31,6 +33,7 @@ const work = [
     description: "LEO constellation network emulation, requirements & lifecycle management for 300+ engineers",
     time: "Jul – Dec 2023",
     link: "https://www.telesat.com/",
+    icon: "https://www.google.com/s2/favicons?domain=telesat.com&sz=64",
   },
   {
     company: "Retro",
@@ -38,6 +41,7 @@ const work = [
     description: "growth strategy, contractor management, influencer outreach",
     time: "2025",
     link: "https://retro.app",
+    icon: "https://www.google.com/s2/favicons?domain=retro.app&sz=64",
   },
   {
     company: "Omi",
@@ -45,6 +49,7 @@ const work = [
     description: "part design, manufacturing support",
     time: "2023",
     link: "https://www.omi.me/",
+    icon: "https://www.google.com/s2/favicons?domain=omi.me&sz=64",
   },
   {
     company: "Mercury Filmworks",
@@ -52,6 +57,7 @@ const work = [
     description: "software and hardware support, computer assembly, inventory management",
     time: "2021 – 2023",
     link: "https://mercuryfilmworks.com/",
+    icon: "https://www.google.com/s2/favicons?domain=mercuryfilmworks.com&sz=64",
   },
   {
     company: "Ottawa River Runners",
@@ -59,6 +65,7 @@ const work = [
     description: "lead instructor for whitewater kayaking, canoe, and raft programs",
     time: "2022 – 2024",
     link: "https://ottawariverrunners.com/",
+    icon: "https://www.google.com/s2/favicons?domain=ottawariverrunners.com&sz=64",
   },
 ];
 
@@ -122,17 +129,6 @@ const additionals = [
   { name: "Resume", link: "/resume.pdf" },
 ];
 
-const blog = await getCollection("blog");
-
-const posts = blog
-  .sort(
-    (a, b) =>
-      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
-  )
-  .map((post) => ({
-    params: { slug: post.slug, title: post.data.title, link: post.data.link },
-    props: post,
-  }));
 ---
 
 <html lang="en">
@@ -169,7 +165,8 @@ const posts = blog
           {
             work.map((job) => (
               <a class="grid md:flex md:justify-between" href={job.link}>
-                <div class="flex space-x-2">
+                <div class="flex items-center space-x-2">
+                  <img src={job.icon} alt={job.company} width="20" height="20" class="rounded-sm" />
                   <p class="font-mono font-bold whitespace-nowrap hover:underline hover:cursor-pointer">
                     {job.company} ({job.time})
                   </p>
@@ -222,32 +219,6 @@ const posts = blog
         </div>
       </div>
 
-      {posts.length > 0 && (
-        <div class="mt-8">
-          <p class="font-bold font-mono text-xl">Posts</p>
-          <div class="mt-4 space-y-3 md:space-y-1">
-            {
-              posts.map((post) => (
-                <a
-                  class="grid md:flex md:justify-between"
-                  href={
-                    !post.props.data.link
-                      ? `/blog/${post.props.slug}`
-                      : post.props.data.link
-                  }
-                >
-                  <p class="font-mono font-bold whitespace-nowrap hover:underline hover:cursor-pointer">
-                    {post.props.data.title}
-                  </p>
-                  <p class="font-mono text-black truncate">
-                    {post.props.data.description}
-                  </p>
-                </a>
-              ))
-            }
-          </div>
-        </div>
-      )}
 
       <div class="mt-8">
         <p class="font-bold font-mono text-xl">Interests</p>
