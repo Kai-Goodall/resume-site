@@ -32,6 +32,42 @@ const work = [
     time: "Jul – Dec 2023",
     link: "https://www.telesat.com/",
   },
+  {
+    company: "Retro",
+    title: "Growth Intern",
+    description: "growth strategy, contractor management, influencer outreach",
+    time: "2025",
+    link: "https://retro.app",
+  },
+  {
+    company: "Omi",
+    title: "Contract Hardware Designer",
+    description: "part design, manufacturing support",
+    time: "2023",
+    link: "https://www.omi.me/",
+  },
+  {
+    company: "Mercury Filmworks",
+    title: "IT Intern",
+    description: "software and hardware support, computer assembly, inventory management",
+    time: "2021 – 2023",
+    link: "https://mercuryfilmworks.com/",
+  },
+  {
+    company: "Ottawa River Runners",
+    title: "Lead Whitewater Kayaking Instructor",
+    description: "lead instructor for whitewater kayaking, canoe, and raft programs",
+    time: "2022 – 2024",
+    link: "https://ottawariverrunners.com/",
+  },
+];
+
+const projects = [
+  {
+    name: "Bagel Fund",
+    description: "technical specialist at a microgrant program run with friends",
+    link: "https://bagel.fund/",
+  },
 ];
 
 const skills = [
@@ -113,6 +149,22 @@ const posts = blog
                   </p>
                 </div>
                 <p class="font-mono md:text-right max-w-xs">{job.description}</p>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <p class="font-bold font-mono text-xl">Projects</p>
+        <div class="mt-4 space-y-3 md:space-y-1">
+          {
+            projects.map((project) => (
+              <a class="grid md:flex md:justify-between" href={project.link}>
+                <p class="font-mono font-bold whitespace-nowrap hover:underline hover:cursor-pointer">
+                  {project.name}
+                </p>
+                <p class="font-mono md:text-right">{project.description}</p>
               </a>
             ))
           }
