@@ -5,7 +5,6 @@ import "../styles/app.css";
 const work = [
   {
     company: "Retro",
-    title: "Growth Intern",
     description: "growth strategy, contractor management, influencer outreach",
     time: "2025",
     link: "https://retro.app",
@@ -13,7 +12,6 @@ const work = [
   },
   {
     company: "Waterloo Rocketry",
-    title: "Propulsion Subsystem Member",
     description: "end-to-end fabrication, static fire operations, materials R&D, brazing development",
     time: "Sep 2024 – present",
     link: "https://www.waterloorocketry.com/",
@@ -21,7 +19,6 @@ const work = [
   },
   {
     company: "Solideon",
-    title: "Additive Manufacturing Engineering Intern",
     description: "robotic WAAM calibration, FDM prototyping, fixture engineering for large aluminum parts",
     time: "Jun – Sep 2024",
     link: "https://solideon.com/",
@@ -29,7 +26,6 @@ const work = [
   },
   {
     company: "ODF / Merge",
-    title: "Technical Program Lead",
     description: "technical due diligence on 2,000+ applications; distributed $35k+ to 44 projects → $6M+ follow-on",
     time: "Apr 2024 – present",
     link: "https://joinodf.com/",
@@ -37,7 +33,6 @@ const work = [
   },
   {
     company: "Telesat",
-    title: "IV&V Systems Engineering Intern",
     description: "LEO constellation network emulation, requirements & lifecycle management for 300+ engineers",
     time: "Jul – Dec 2023",
     link: "https://www.telesat.com/",
@@ -45,7 +40,6 @@ const work = [
   },
   {
     company: "Omi",
-    title: "Contract Hardware Designer",
     description: "part design, manufacturing support",
     time: "2023",
     link: "https://www.omi.me/",
@@ -53,7 +47,6 @@ const work = [
   },
   {
     company: "Ottawa River Runners",
-    title: "Lead Whitewater Kayaking Instructor",
     description: "lead instructor for whitewater kayaking, canoe, and raft programs",
     time: "2022 – 2024",
     link: "https://ottawariverrunners.com/",
@@ -61,7 +54,6 @@ const work = [
   },
   {
     company: "Mercury Filmworks",
-    title: "IT Intern",
     description: "software and hardware support, computer assembly, inventory management",
     time: "2021 – 2023",
     link: "https://mercuryfilmworks.com/",
@@ -142,15 +134,12 @@ const additionals = [
   </head>
   <div class="flex min-h-screen p-8 max-w-4xl m-auto" transition:animate="fade">
     <div class="my-auto w-full">
-      <div class="font-mono">
-        <p class="font-bold text-2xl">Kai Goodall</p>
-      </div>
-      <div>
-        <p class="font-mono">Propulsion engineer at Waterloo Rocketry and Technical Program Lead at ODF/Merge.</p>
-        <p class="font-mono text-black/60 text-sm mt-1">mechanical engineering, rocketry, additive manufacturing, and building programs for ambitious builders.</p>
-      </div>
 
-      <div class="mt-4">
+      <p class="font-bold text-2xl font-mono">Kai Goodall</p>
+      <p class="font-mono mt-1">Propulsion engineer at Waterloo Rocketry and Technical Program Lead at ODF/Merge.</p>
+      <p class="font-mono text-black/60 text-sm mt-1">mechanical engineering, rocketry, additive manufacturing, and building programs for ambitious builders.</p>
+
+      <div class="mt-6">
         <p class="font-bold font-mono text-lg">Experience</p>
         <div class="mt-2">
           {
@@ -159,14 +148,14 @@ const additionals = [
                 <div class="flex flex-col items-center shrink-0">
                   <img src={job.icon} alt={`${job.company} logo`} width="24" height="24" class="w-6 h-6 shrink-0 rounded-sm" />
                   {i < work.length - 1 && (
-                    <span class="font-mono text-black/40 select-none leading-tight">|</span>
+                    <span class="font-mono text-black/30 select-none text-xs leading-none py-0.5">|</span>
                   )}
                 </div>
-                <a class="grid md:flex md:justify-between w-full" href={job.link}>
+                <a class="grid md:flex md:justify-between w-full mb-0.5" href={job.link}>
                   <p class="font-mono whitespace-nowrap hover:underline hover:cursor-pointer">
-                    <span class="font-bold">{job.company}</span> <span class="text-black/40">({job.time})</span>
+                    <span class="font-bold">{job.company}</span>&nbsp;<span class="text-black/40">({job.time})</span>
                   </p>
-                  <p class="font-mono">{job.description}</p>
+                  <p class="font-mono md:text-right md:max-w-xs">{job.description}</p>
                 </a>
               </div>
             ))
@@ -174,75 +163,71 @@ const additionals = [
         </div>
       </div>
 
-      <div class="mt-4">
+      <div class="mt-6">
         <p class="font-bold font-mono text-lg">Education</p>
-        <div class="mt-2">
-          <div class="flex gap-2">
-            <div class="flex flex-col items-center shrink-0">
-              <img src="https://www.google.com/s2/favicons?domain=uwaterloo.ca&sz=64" alt="University of Waterloo logo" width="24" height="24" class="w-6 h-6 shrink-0 rounded-sm" />
-            </div>
-            <div class="grid md:flex md:justify-between w-full">
-              <p class="font-mono whitespace-nowrap">
-                <span class="font-bold">University of Waterloo</span> <span class="text-black/40">(exp. Apr 2030)</span>
+        <div class="mt-2 flex gap-2">
+          <img src="https://www.google.com/s2/favicons?domain=uwaterloo.ca&sz=64" alt="University of Waterloo logo" width="24" height="24" class="w-6 h-6 shrink-0 rounded-sm mt-0.5" />
+          <div class="w-full">
+            <div class="grid md:flex md:justify-between">
+              <p class="font-mono">
+                <span class="font-bold">University of Waterloo</span>&nbsp;<span class="text-black/40">(exp. Apr 2030)</span>
               </p>
-              <p class="font-mono">BASc Mechanical Engineering, Co-op</p>
+              <p class="font-mono md:text-right">BASc Mechanical Engineering, Co-op</p>
             </div>
+            <p class="font-mono text-sm text-black/60 mt-0.5">President's Scholarship ($2,000 · 95%+ avg) · Dean's List: Winter 2025</p>
           </div>
-          <p class="font-mono text-sm text-black/60 mt-1 ml-8">President's Scholarship ($2,000 · 95%+ avg) · Dean's List: Winter 2025</p>
         </div>
       </div>
 
-      <div class="mt-4">
+      <div class="mt-6">
         <p class="font-bold font-mono text-lg">Projects</p>
         <div class="mt-2 space-y-1">
           {
             projects.map((project) => (
               <a class="grid md:flex md:justify-between" href={project.link}>
-                <p class="font-mono font-bold whitespace-nowrap hover:underline hover:cursor-pointer">
-                  {project.name}
-                </p>
-                <p class="font-mono">{project.description}</p>
+                <p class="font-mono font-bold whitespace-nowrap hover:underline hover:cursor-pointer">{project.name}</p>
+                <p class="font-mono md:text-right md:max-w-xs">{project.description}</p>
               </a>
             ))
           }
         </div>
       </div>
 
-      <div class="mt-4">
+      <div class="mt-6">
         <p class="font-bold font-mono text-lg">Skills</p>
         <div class="mt-2 space-y-1">
           {
             skills.map((s) => (
               <div class="grid md:flex md:justify-between">
                 <p class="font-mono font-bold whitespace-nowrap">{s.category}</p>
-                <p class="font-mono">{s.items}</p>
+                <p class="font-mono md:text-right md:max-w-xs">{s.items}</p>
               </div>
             ))
           }
         </div>
       </div>
 
-      <div class="mt-4">
+      <div class="mt-6">
         <p class="font-bold font-mono text-lg">Interests</p>
         <div class="mt-2 space-y-1">
           {
             hobbies.map((h) => (
               <div class="grid md:flex md:justify-between">
-                <p class="font-mono font-bold">{h.name}</p>
-                {h.description && <p class="font-mono">{h.description}</p>}
+                <p class="font-mono font-bold whitespace-nowrap">{h.name}</p>
+                {h.description && <p class="font-mono md:text-right">{h.description}</p>}
               </div>
             ))
           }
           <div class="grid md:flex md:justify-between">
-            <p class="font-mono font-bold">Speaker / Panelist</p>
-            <p class="font-mono">World Summit AI (Montreal) · C2 MTL · Collision Conference (Toronto)</p>
+            <p class="font-mono font-bold whitespace-nowrap">Speaker / Panelist</p>
+            <p class="font-mono md:text-right">World Summit AI (Montreal) · C2 MTL · Collision Conference (Toronto)</p>
           </div>
         </div>
       </div>
 
-      <div class="mt-4 font-mono text-sm text-black/50">
+      <div class="mt-6 font-mono text-sm text-black/50">
         <p class="select-none">---</p>
-        <div class="mt-2 flex flex-wrap gap-x-2">
+        <div class="mt-1 flex flex-wrap gap-x-2">
           {
             additionals.map((item, i) => (
               <>
@@ -255,6 +240,7 @@ const additionals = [
           }
         </div>
       </div>
+
     </div>
   </div>
 </html>
