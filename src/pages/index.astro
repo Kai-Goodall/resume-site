@@ -68,7 +68,23 @@ const work = [
   },
 ];
 
-const projects = [
+const projects: {
+  name: string;
+  description: string;
+  link?: string;
+  video?: { mp4: string; webm: string; poster: string; caption: string };
+}[] = [
+  {
+    name: "VEX IQ CNC Mill",
+    description: "3-axis CNC mill from a kids' robotics kit · wrote all software",
+    video: {
+      mp4: "/projects/vex-cnc-mill.mp4",
+      webm: "/projects/vex-cnc-mill.webm",
+      poster: "/projects/vex-cnc-mill-poster.jpg",
+      caption:
+        "4-person team, Jan – Apr 2026. Turned a VEX IQ kit into an 8×8×5in CNC mill with rack-and-pinion XY and a dual-motor leadscrew Z. I wrote all the software in VEX C++: a G-code interpreter running on the IQ Brain (split into sub-8KB files to fit in memory) and a motor-current auto-probing routine to find the stock, and led integration & testing. Here it's running slicer-generated G-code in floral foam.",
+    },
+  },
   {
     name: "Pikipiki Rafiki",
     description: "motorcycle financing to reduce poverty in rural Tanzania",
@@ -197,12 +213,31 @@ const additionals = [
         <p class="font-bold font-mono text-lg">Projects</p>
         <div class="mt-2 space-y-1">
           {
-            projects.map((project) => (
-              <a class="grid md:flex md:justify-between" href={project.link}>
-                <p class="font-mono font-bold whitespace-nowrap hover:underline hover:cursor-pointer">{project.name}</p>
-                <p class="font-mono md:text-right md:whitespace-nowrap">{project.description}</p>
-              </a>
-            ))
+            projects.map((project) =>
+              project.video ? (
+                <details class="group">
+                  <summary class="grid md:flex md:justify-between list-none cursor-pointer [&::-webkit-details-marker]:hidden">
+                    <p class="font-mono font-bold whitespace-nowrap hover:underline">
+                      {project.name}&nbsp;<span class="text-black/40 font-normal"><span class="group-open:hidden">[+ video]</span><span class="hidden group-open:inline">[– close]</span></span>
+                    </p>
+                    <p class="font-mono md:text-right md:whitespace-nowrap">{project.description}</p>
+                  </summary>
+                  <div class="mt-2 mb-3">
+                    <video class="w-full rounded-sm bg-black/5" controls muted loop playsinline preload="none"
+                           poster={project.video.poster} width="1280" height="720">
+                      <source src={project.video.webm} type="video/webm" />
+                      <source src={project.video.mp4} type="video/mp4" />
+                    </video>
+                    <p class="font-mono text-sm text-black/60 mt-1">{project.video.caption}</p>
+                  </div>
+                </details>
+              ) : (
+                <a class="grid md:flex md:justify-between" href={project.link}>
+                  <p class="font-mono font-bold whitespace-nowrap hover:underline hover:cursor-pointer">{project.name}</p>
+                  <p class="font-mono md:text-right md:whitespace-nowrap">{project.description}</p>
+                </a>
+              )
+            )
           }
         </div>
       </div>
